@@ -5,87 +5,87 @@
   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
   <url>
-    <loc>http://localhost/web2202/assignment/public</loc>
+    <loc>http://localhost/recipe-roots/public</loc>
     <lastmod>2024-12-13T09:14:07+00:00</lastmod>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>http://localhost/web2202/assignment/public/recipes</loc>
+    <loc>http://localhost/recipe-roots/public/recipes</loc>
     <lastmod>2024-12-13T09:14:07+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://localhost/web2202/assignment/public/recipes/browse</loc>
+    <loc>http://localhost/recipe-roots/public/recipes/browse</loc>
     <lastmod>2024-12-13T09:14:07+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://localhost/web2202/assignment/public/recipes/create</loc>
+    <loc>http://localhost/recipe-roots/public/recipes/create</loc>
     <lastmod>2024-12-13T09:14:07+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://localhost/web2202/assignment/public/cookbooks</loc>
+    <loc>http://localhost/recipe-roots/public/cookbooks</loc>
     <lastmod>2024-12-13T09:14:07+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://localhost/web2202/assignment/public/cookbooks/browse</loc>
+    <loc>http://localhost/recipe-roots/public/cookbooks/browse</loc>
     <lastmod>2024-12-13T09:14:07+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://localhost/web2202/assignment/public/cookbooks/create</loc>
+    <loc>http://localhost/recipe-roots/public/cookbooks/create</loc>
     <lastmod>2024-12-13T09:14:07+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://localhost/web2202/assignment/public/ingredients</loc>
+    <loc>http://localhost/recipe-roots/public/ingredients</loc>
     <lastmod>2024-12-13T09:14:07+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://localhost/web2202/assignment/public/ingredients/cart</loc>
+    <loc>http://localhost/recipe-roots/public/ingredients/cart</loc>
     <lastmod>2024-12-13T09:14:07+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://localhost/web2202/assignment/public/ingredients/invoices</loc>
+    <loc>http://localhost/recipe-roots/public/ingredients/invoices</loc>
     <lastmod>2024-12-13T09:14:07+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://localhost/web2202/assignment/public/notifications</loc>
+    <loc>http://localhost/recipe-roots/public/notifications</loc>
     <lastmod>2024-12-13T09:14:07+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://localhost/web2202/assignment/public/settings</loc>
+    <loc>http://localhost/recipe-roots/public/settings</loc>
     <lastmod>2024-12-13T09:14:07+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://localhost/web2202/assignment/public/settings/profiles</loc>
+    <loc>http://localhost/recipe-roots/public/settings/profiles</loc>
     <lastmod>2024-12-13T09:14:07+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://localhost/web2202/assignment/public/admin</loc>
+    <loc>http://localhost/recipe-roots/public/admin</loc>
     <lastmod>2024-12-13T09:14:07+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://localhost/web2202/assignment/public/admin/ingredients</loc>
+    <loc>http://localhost/recipe-roots/public/admin/ingredients</loc>
     <lastmod>2024-12-13T09:14:07+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://localhost/web2202/assignment/public/dashboard</loc>
+    <loc>http://localhost/recipe-roots/public/dashboard</loc>
     <lastmod>2024-12-13T09:14:07+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://localhost/web2202/assignment/public/dashboard/produce/add</loc>
+    <loc>http://localhost/recipe-roots/public/dashboard/produce/add</loc>
     <lastmod>2024-12-13T09:14:07+00:00</lastmod>
     <priority>0.80</priority>
   </url>
