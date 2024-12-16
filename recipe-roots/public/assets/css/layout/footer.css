@@ -1,0 +1,24 @@
+.footer {
+	background-color: var(--secondary-clr);
+	padding-inline: var(--content-padding);
+	padding-block: 2rem;
+	color: var(--silver);
+	width: 100%;
+	position: relative;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.footer__content {
+	--_grid-column-count: 2;
+	--_grid-layout-gap: 2rem;
+	padding-bottom: 1.25rem;
+}
+
+.footer__content__links a:hover {
+	text-decoration: underline;
+}
+
+.footer__copyright {
+	font-size: 0.8rem;
+}

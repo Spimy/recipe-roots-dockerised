@@ -1,0 +1,399 @@
+main {
+	margin-bottom: 1rem;
+	position: relative;
+}
+
+h1 {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	word-break: break-all;
+	word-break: break-word;
+	hyphens: auto;
+	flex-basis: 50%;
+	flex-grow: 9999;
+}
+
+.btn {
+	padding: 0.3em 1.5em;
+}
+
+.heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	gap: 1em;
+	margin-block: 1rem;
+}
+
+.heading h1 {
+	line-height: 1em;
+}
+
+.heading__dropdown {
+	flex-grow: 1;
+	position: relative;
+}
+
+.heading__dropdown img {
+	width: 2rem;
+	cursor: pointer;
+}
+
+.heading__dropdown:has(input:focus-visible) {
+	outline: 0.2rem solid var(--primary-clr);
+}
+
+.heading__dropdown > input {
+	position: absolute;
+	opacity: 0;
+}
+
+.heading__dropdown__menu {
+	display: none;
+	gap: 0.5rem;
+	padding: 1rem;
+	border-radius: 0.25rem;
+	background-color: var(--white);
+	border: 0.1rem solid var(--silver);
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: max-content;
+}
+
+.heading__dropdown input:checked + .heading__dropdown__menu {
+	display: grid;
+}
+
+.heading__dropdown__menu * {
+	border: none;
+	text-align: left;
+	background-color: transparent;
+	padding: 0;
+	color: var(--primary-clr);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+}
+
+.heading__dropdown__menu *:before {
+	content: '';
+	display: inline-block;
+	background-color: currentColor;
+	mask-image: url(../../icons/add.svg);
+	mask-repeat: no-repeat;
+	mask-position: center;
+	mask-size: cover;
+	width: 1rem;
+	height: 1rem;
+}
+
+.heading__dropdown__menu *:nth-child(1):before {
+	mask-image: url(../../icons/edit.svg);
+}
+
+.heading__dropdown__menu *:nth-child(1):not(:has(+ *)):before {
+	mask-image: url(../../icons/add.svg);
+}
+
+.heading__dropdown__menu *:nth-child(2):before {
+	mask-image: url(../../icons/trash.svg);
+}
+
+.heading__dropdown__menu *:hover {
+	text-decoration: underline;
+}
+
+.heading__dropdown__menu input[type='submit'] {
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	padding: 0;
+	text-align: left;
+	color: var(--primary-clr);
+}
+
+.metadata {
+	display: flex;
+	justify-content: space-between;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+
+.metadata__info {
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+}
+
+.metadata__info img {
+	width: 3.25rem;
+}
+
+.metadata__info img.watch {
+	width: 2rem;
+}
+
+.metadata__info:nth-of-type(2) img {
+	width: 2rem;
+}
+
+.metadata__info p {
+	margin: 0;
+}
+
+.metadata__info p:first-of-type {
+	font-weight: 600;
+}
+
+.details {
+	display: grid;
+	gap: 1rem;
+	margin-block: 1rem;
+}
+
+.details__thumbnail object {
+	background-color: var(--primary-clr);
+	font-weight: bold;
+	font-size: 2rem;
+	width: 100%;
+	height: 30rem;
+	object-fit: cover;
+	object-position: center;
+	display: grid;
+	place-items: center;
+	border-radius: 0.5rem;
+}
+
+.details__ingredients {
+	color: var(--white);
+	background-color: var(--secondary-clr);
+	border-radius: 0.5rem;
+	padding: 1rem;
+	overflow: auto;
+}
+
+.details__ingredients .btn:focus-visible {
+	outline: 0.2em solid var(--primary-clr);
+}
+
+.details__instructions {
+	margin-block: 2rem;
+	padding-block: 2rem;
+	border-block: 0.1rem solid var(--grey-blue);
+}
+
+.details__comments h2 {
+	color: var(--primary-clr);
+}
+
+.details__comments__container {
+	display: grid;
+	gap: 1.5rem;
+}
+
+.details__comments__comment {
+	box-shadow: var(--shadow-s);
+	border-radius: 0.5rem;
+	padding: 1rem;
+}
+
+.details__comments__comment > * + * {
+	margin-block-start: 0.5rem;
+}
+
+.details__comments__comment__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+}
+
+.details__comments__comment__header .avatar {
+	display: grid;
+	place-items: center;
+	border-radius: 100%;
+	background-color: var(--silver);
+	width: 2rem;
+	height: 2rem;
+	object-fit: cover;
+}
+
+.details__comments__comment__header p,
+.details__comments__comment__header > div {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.details__comments__comment__header p {
+	font-weight: 600;
+}
+
+.details__comments__comment__header > div {
+	align-items: center;
+	justify-content: space-between;
+}
+
+.details__comments__comment__header p img {
+	width: 0.75rem;
+	height: 0.75rem;
+}
+
+.details__comments__comment__header p.rating {
+	gap: 0.25rem;
+}
+
+.details__comments__comment__header__btns button {
+	cursor: pointer;
+	border: none;
+	background-color: transparent;
+	text-align: left;
+	color: var(--primary-clr);
+}
+
+.details__comments__comment__header__btns button:hover {
+	text-decoration: underline;
+}
+
+.details__comments__editor textarea {
+	width: 100%;
+	resize: vertical;
+	min-height: 10rem;
+	max-height: 15rem;
+	overflow: auto;
+}
+
+.details__comments__editor__footer {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-block-start: 1rem;
+}
+
+.rating-input:hover > input + label:hover:after,
+.rating-input:hover > input + label:hover ~ input + label:after,
+.rating-input > input:checked ~ label:after {
+	content: url('../../icons/star-yellow.svg');
+}
+
+.rating-input:hover > input + label:after,
+.rating-input > label:after,
+.rating-score > .rating-score-item:after {
+	content: url('../../icons/star-grey.svg');
+}
+
+.rating-input:hover > input + label:hover:after,
+.rating-input:hover > input + label:hover ~ input + label:after,
+.rating-input > input:checked ~ label:after,
+.rating-input:hover > input + label:after,
+.rating-input > label:after,
+.rating-score > .rating-score-item:after {
+	cursor: pointer;
+	display: inline-block;
+	transform: scale(1.75);
+}
+
+.rating-input {
+	border: none;
+	background-color: var(--silver);
+	border-radius: 10rem;
+	display: inline-flex;
+	flex-direction: row-reverse;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 0.75rem;
+	margin: 0;
+	padding-inline: 1rem;
+	position: relative;
+}
+
+/* Not doing display block so that the required error message is visible */
+.rating-input > input {
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+}
+
+table {
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;
+}
+
+th {
+	color: var(--grey-blue);
+	font-weight: normal;
+}
+
+tr {
+	border-radius: 0.25rem;
+	padding: 0.2rem;
+}
+
+td {
+	border-top: 0.1rem solid var(--grey-blue);
+}
+
+td,
+th {
+	padding: 6px;
+	text-align: left;
+}
+
+@media only screen and (max-width: 760px),
+	(min-device-width: 768px) and (max-device-width: 1024px) {
+	/* Force table to not be like tables anymore */
+	table,
+	thead,
+	tbody,
+	th,
+	td,
+	tr {
+		display: block;
+	}
+
+	tr:nth-of-type(even) {
+		background: hsl(from var(--secondary-clr) h s 25%);
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	td {
+		/* Behave  like a "row" */
+		position: relative;
+		padding-left: 50%;
+		border-top: 0;
+	}
+
+	td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before {
+		content: 'Amount';
+	}
+
+	td:nth-of-type(2):before {
+		content: 'Unit';
+	}
+
+	td:nth-of-type(3):before {
+		content: 'Ingredient';
+	}
+}

@@ -1,0 +1,205 @@
+main {
+	margin-bottom: 1rem;
+	position: relative;
+}
+
+h1 {
+	margin-bottom: calc(var(--_margin-bottom) * -1);
+}
+
+noscript.ingredient-count {
+	position: absolute;
+	padding-inline: var(--content-padding);
+	padding-top: 25dvh;
+	inset: 0;
+	background-color: var(--white);
+	z-index: 999;
+}
+
+noscript.ingredient-count .btn {
+	width: 100%;
+}
+
+.btn {
+	padding: 0.5em 1.5em;
+}
+
+.grid {
+	--_grid-column-count: 2;
+}
+
+.editor,
+.editor--metadata {
+	display: grid;
+	gap: 1rem;
+}
+
+.editor__column {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.editor__input {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1rem;
+}
+
+.editor__input--radio {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.editor__input--radio label {
+	font-weight: normal;
+}
+
+.editor__input--radio label > * {
+	margin-right: 0.5rem;
+}
+
+.editor__ingredients {
+	color: var(--white);
+	background-color: var(--secondary-clr);
+	border-radius: 0.5rem;
+	padding: 1rem;
+	overflow: auto;
+}
+
+.editor__ingredients > .btn {
+	border: none;
+	width: 100%;
+}
+
+.editor__ingredients .btn:focus-visible {
+	outline: 0.2em solid var(--primary-clr);
+}
+
+.editor__ingredients__list select,
+.editor__ingredients__list input,
+.editor__ingredients__list input:hover {
+	filter: none;
+	box-shadow: none;
+	width: 100%;
+}
+
+.editor__ingredients__list label[draggable='true'] {
+	cursor: grab;
+}
+
+.editor__ingredients__list label[draggable='true'] img,
+.editor__ingredients__list button img {
+	width: 1.5rem;
+}
+
+.editor__ingredients__list button {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+textarea {
+	resize: vertical;
+	min-height: 10rem;
+}
+
+table {
+	width: 100%;
+	text-align: left;
+	margin-block: 1rem;
+}
+
+th {
+	color: var(--grey-blue);
+	font-weight: normal;
+}
+
+tr {
+	border-radius: 0.25rem;
+	padding: 0.2rem;
+}
+
+td,
+th {
+	padding: 6px;
+	text-align: left;
+}
+
+td:last-of-type,
+th:last-of-type {
+	text-align: end;
+}
+
+@media only screen and (max-width: 760px),
+	(min-device-width: 768px) and (max-device-width: 1024px) {
+	/* Force table to not be like tables anymore */
+	table,
+	thead,
+	tbody,
+	th,
+	td,
+	tr {
+		display: block;
+	}
+
+	td:nth-of-type(1) label {
+		display: flex;
+		justify-content: end;
+	}
+
+	tr:nth-of-type(even) {
+		background: hsl(from var(--secondary-clr) h s 25%);
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	td {
+		/* Behave  like a "row" */
+		position: relative;
+		padding-left: 50%;
+	}
+
+	td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before {
+		content: 'Reorder';
+	}
+
+	td:nth-of-type(2):before {
+		content: 'Amount';
+	}
+
+	td:nth-of-type(3):before {
+		content: 'Unit';
+	}
+
+	td:nth-of-type(4):before {
+		content: 'Ingredient';
+	}
+
+	td:nth-of-type(5):before {
+		content: 'Remove';
+		text-align: left;
+	}
+}

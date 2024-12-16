@@ -1,0 +1,130 @@
+html {
+	overflow-x: hidden;
+}
+
+main {
+	margin-inline: calc(var(--content-padding) * -1);
+}
+
+.hero {
+	background-color: var(--silver);
+	padding-inline: var(--content-padding);
+	min-height: calc(100dvh - var(--navbar-height));
+
+	/* Center align everything */
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+
+	/* The dishes */
+	background-image: url('../../images/food1.svg'), url('../../images/food2.svg');
+	background-size: 10rem;
+	background-size: min(50%, 15rem);
+	background-repeat: no-repeat;
+	background-position: 10% 65dvh, 90% 10dvh;
+}
+
+.hero p {
+	max-width: 50ch;
+	color: var(--grey);
+}
+
+.features {
+	padding-inline: var(--content-padding);
+}
+
+.features h2,
+.faq h2 {
+	text-align: center;
+	color: var(--primary-clr);
+	margin-block: 0.5em;
+}
+
+.features__items > * {
+	display: grid;
+	place-items: center;
+	gap: 0.5rem;
+	padding: 2em;
+	border-radius: 1em;
+	box-shadow: var(--shadow-s);
+	transition: transform 0.3s;
+}
+
+.features__items > *:hover {
+	transform: translateY(-0.3rem);
+}
+
+.features__items > * p {
+	color: var(--grey);
+}
+
+.faq {
+	padding-inline: var(--content-padding);
+	max-width: 60rem;
+	margin: 1.25rem auto;
+}
+
+.faq__item {
+	border-radius: 0.5rem;
+	margin-bottom: 1rem;
+	background-color: var(--silver);
+	box-shadow: var(--shadow-xs);
+	transition: box-shadow 0.3s;
+}
+
+.faq__item:hover {
+	box-shadow: var(--shadow-s);
+}
+
+.faq__item:has(.faq__item__question:focus-visible) {
+	outline: 0.2em solid var(--primary-clr);
+}
+
+.faq__item__question {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	align-items: center;
+	gap: 1rem;
+	padding: 1rem;
+	cursor: pointer;
+	outline: none;
+	transition: margin 0.3s;
+}
+
+.faq__item__question::after {
+	content: '';
+	background-color: var(--primary-clr);
+	-webkit-mask-image: url('../../icons/expand.svg');
+	mask-image: url('../../icons/expand.svg');
+	mask-repeat: no-repeat;
+	width: 1.5em;
+	height: 1.5em;
+	transform: rotate(0);
+	transition: transform 0.3s;
+}
+
+.faq__item[open] > .faq__item__question {
+	margin-bottom: 1rem;
+}
+
+.faq__item[open] > .faq__item__question::after {
+	transform: rotate(-180deg);
+}
+
+.faq__item__answer {
+	border-radius: 0.5rem;
+	padding-inline: 1rem;
+	padding-bottom: 1rem;
+	margin-top: -1rem;
+	color: var(--grey);
+	font-size: 0.8rem;
+}
+
+p.success {
+	position: absolute;
+	top: 15%;
+	color: var(--success);
+}

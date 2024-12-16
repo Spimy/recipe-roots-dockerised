@@ -1,0 +1,66 @@
+main {
+	margin-bottom: 1rem;
+	position: relative;
+}
+
+h1 {
+	margin-bottom: calc(var(--_margin-bottom) * -1);
+}
+
+.grid {
+	--_grid-column-count: 2;
+}
+
+.btn {
+	padding: 0.5em 1.5em;
+}
+
+.editor {
+	display: grid;
+	gap: 1rem;
+}
+
+.editor__input {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1rem;
+}
+
+.editor__input--radio {
+	display: flex;
+	gap: 1rem;
+}
+
+.editor__input--radio label {
+	font-weight: normal;
+}
+
+.editor__input--radio label > * {
+	margin-right: 0.5rem;
+}
+
+.editor__recipes {
+	color: var(--white);
+	background-color: var(--secondary-clr);
+	border-radius: 0.5rem;
+	padding: 1rem;
+	overflow: auto;
+}
+
+.editor__recipes > .btn {
+	border: none;
+	width: 100%;
+}
+
+.editor__recipes .btn:focus-visible {
+	outline: 0.2em solid var(--primary-clr);
+}
+
+textarea {
+	resize: none;
+	min-height: 100%;
+}
+
+.btn img {
+	filter: brightness(0) invert(1);
+}

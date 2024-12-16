@@ -1,0 +1,179 @@
+hr {
+	width: 100%;
+	color: var(--grey-blue);
+	border-color: var(--grey-blue);
+}
+
+.admin {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	margin-block-end: 1rem;
+}
+
+.admin__nav {
+	display: flex;
+	gap: 0.5rem;
+	border-radius: 0.5rem;
+	text-align: center;
+	flex: 1;
+}
+
+.admin__nav > * {
+	display: flex;
+	justify-content: space-evenly;
+	gap: 0.5rem;
+	width: 100%;
+	border-bottom: 0.2rem solid var(--silver);
+}
+
+.admin__nav__btns {
+	display: none;
+}
+
+.admin__nav__links__link {
+	display: block;
+	height: 100%;
+	padding: 0.5rem 1rem;
+	border-top-left-radius: 0.5rem;
+	border-top-right-radius: 0.5rem;
+}
+
+.admin__nav__links__link--active {
+	background-color: var(--silver);
+}
+
+@media screen and (min-width: 32em) {
+	.admin__nav {
+		padding: 1rem;
+		flex-direction: column;
+		justify-content: space-between;
+		background-color: var(--silver);
+	}
+
+	.admin__nav__btns {
+		display: block;
+	}
+
+	.admin__nav > * {
+		flex-direction: column;
+	}
+
+	.admin__nav__links__link {
+		padding: 0.5rem 5rem;
+		border-radius: 0.5rem;
+	}
+
+	.admin__nav__links__link:hover:not(.admin__nav__links__link--active) {
+		background-color: hsl(from var(--white) h s l / 0.5);
+	}
+
+	.admin__nav__links__link--active {
+		background-color: var(--white);
+	}
+}
+
+.admin__users,
+.admin__ingredients,
+.admin__forms {
+	flex: 1;
+	flex-basis: 50%;
+	display: grid;
+	gap: 1rem;
+}
+
+.admin__users .btn {
+	padding: 0.3em 1.5em;
+}
+
+.admin__ingredients .grid {
+	--_grid-column-count: 2;
+}
+
+.admin__users__container {
+	background-color: var(--silver);
+	padding: 1rem;
+	border-radius: 0.5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.admin__users__container > div {
+	display: flex;
+	gap: 1rem;
+}
+
+.admin__editor {
+	display: grid;
+	gap: 1rem;
+}
+
+.admin__editor .btn {
+	padding: 0.35em;
+}
+
+.admin__editor__fields {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	gap: 2rem;
+	margin-block-end: 2rem;
+}
+
+.input__file,
+.input__file--preview,
+.input__file label,
+.admin__editor__fields > div:nth-child(1) {
+	aspect-ratio: 1/1;
+	border-radius: 100%;
+}
+
+.input__file input {
+	text-align: center;
+	width: 100%;
+}
+
+.admin__editor__fields > div {
+	flex: 1;
+}
+
+.admin__editor__fields > div:nth-child(2) {
+	flex-basis: 50%;
+	display: grid;
+	gap: 1rem;
+}
+
+.admin__editor__input {
+	display: grid;
+}
+
+.admin__editor__input--radio {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.admin__editor__input--radio label {
+	font-weight: normal;
+}
+
+.admin__editor__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.admin__editor__actions .btn {
+	flex: 1;
+}
+
+.admin__column {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 1rem;
+}

@@ -1,0 +1,91 @@
+main {
+	margin: 0 auto;
+	width: min(100%, 75ch);
+}
+
+h1 {
+	margin-block: 1rem;
+	color: var(--secondary-clr);
+}
+
+.auth {
+	display: grid;
+	gap: 2rem;
+	margin-bottom: 2rem;
+}
+
+.auth__input {
+	display: grid;
+}
+
+.auth__input small {
+	color: var(--error);
+	display: none;
+}
+
+.auth__input input:user-invalid + small {
+	display: block;
+}
+
+.auth__input--radio {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.auth__input--radio label {
+	font-weight: normal;
+}
+
+.auth__input--radio label > * {
+	margin-right: 0.5rem;
+}
+
+.auth__input--type input {
+	opacity: 0;
+	margin-left: -1.5rem;
+}
+
+.auth__input--type label {
+	text-align: center;
+	padding: 1rem;
+	color: var(--primary-clr);
+	background-color: var(--white);
+	border: 0.2em solid var(--primary-clr);
+	filter: drop-shadow(var(--shadow-xs));
+	transition: filter 0.3s;
+	border-radius: 0.25rem;
+	cursor: pointer;
+	flex: 1;
+}
+
+.auth__input--type label:hover {
+	filter: drop-shadow(var(--shadow-s));
+}
+
+.auth__input--type label:has(input:focus-visible) {
+	outline: 0.2em solid var(--secondary-clr);
+}
+
+.auth__input--type label:has(input:checked) {
+	background-color: var(--primary-clr);
+	color: var(--white);
+}
+
+.auth__input--options {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-block: -1rem;
+	font-size: 0.9rem;
+}
+
+.auth__input--options label {
+	font-weight: normal;
+	color: var(--grey);
+}
+
+.auth p {
+	text-align: center;
+}

@@ -1,0 +1,59 @@
+.btn {
+	padding: 0.3em 1.5em;
+}
+
+.heading {
+	--_margin-bottom: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	flex-wrap: wrap;
+	gap: 1em;
+	margin-bottom: var(--_margin-bottom);
+}
+
+.heading h1 {
+	margin-bottom: calc(var(--_margin-bottom) * -1);
+	flex-grow: 9999;
+}
+
+.heading .btn {
+	flex-grow: 1;
+}
+
+.filter > * + * {
+	margin-block-start: 1rem;
+}
+
+.filter__input {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	gap: 0.5rem;
+}
+
+.filter__input input[type='text'] {
+	width: 100%;
+}
+
+.filter__input__submit {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 1rem;
+}
+
+.grid,
+.empty {
+	margin-block: 1rem;
+}
+
+.empty .btn {
+	padding: 0.75em 2em;
+	width: 100%;
+	max-width: 30ch;
+}

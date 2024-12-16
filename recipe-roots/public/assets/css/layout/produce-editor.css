@@ -1,0 +1,47 @@
+main {
+	margin-bottom: 1rem;
+	position: relative;
+}
+
+h1 {
+	margin-bottom: calc(var(--_margin-bottom) * -1);
+}
+
+.btn {
+	padding: 0.5em 1.5em;
+}
+
+.grid {
+	--_grid-column-count: 2;
+}
+
+.editor,
+.editor--metadata {
+	display: grid;
+	gap: 1rem;
+}
+
+.editor__column {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 1rem;
+}
+
+.editor__column *:not(span) {
+	flex: 1;
+}
+
+.editor__column select {
+	width: 100%;
+}
+
+.editor__input {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1rem;
+}
+
+.btn img {
+	filter: brightness(0) invert(1);
+}

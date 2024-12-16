@@ -1,0 +1,145 @@
+hr {
+	width: 100%;
+	color: var(--grey-blue);
+	border-color: var(--grey-blue);
+}
+
+.settings {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	margin-block-end: 1rem;
+}
+
+.settings__nav {
+	display: flex;
+	gap: 0.5rem;
+	border-radius: 0.5rem;
+	text-align: center;
+	flex: 1;
+}
+
+.settings__nav > * {
+	display: flex;
+	justify-content: space-evenly;
+	gap: 0.5rem;
+	width: 100%;
+	border-bottom: 0.2rem solid var(--silver);
+}
+
+.settings__nav__btns {
+	display: none;
+}
+
+.settings__nav__links__link {
+	display: block;
+	height: 100%;
+	padding: 0.5rem 1rem;
+	border-top-left-radius: 0.5rem;
+	border-top-right-radius: 0.5rem;
+}
+
+.settings__nav__links__link--active {
+	background-color: var(--silver);
+}
+
+@media screen and (min-width: 32em) {
+	.settings__nav {
+		padding: 1rem;
+		flex-direction: column;
+		justify-content: space-between;
+		background-color: var(--silver);
+	}
+
+	.settings__nav__btns {
+		display: block;
+	}
+
+	.settings__nav > * {
+		flex-direction: column;
+	}
+
+	.settings__nav__links__link {
+		padding: 0.5rem 5rem;
+		border-radius: 0.5rem;
+	}
+
+	.settings__nav__links__link:hover:not(.settings__nav__links__link--active) {
+		background-color: hsl(from var(--white) h s l / 0.5);
+	}
+
+	.settings__nav__links__link--active {
+		background-color: var(--white);
+	}
+}
+
+.settings__forms {
+	flex: 1;
+	flex-basis: 50%;
+	display: grid;
+	gap: 1rem;
+}
+
+.settings__editor {
+	display: grid;
+	gap: 1rem;
+}
+
+.settings__editor .btn {
+	padding: 0.35em;
+}
+
+.settings__editor__fields {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	gap: 2rem;
+	margin-block-end: 2rem;
+}
+
+.input__file,
+.input__file--preview,
+.input__file label,
+.settings__editor__fields > div:nth-child(1) {
+	aspect-ratio: 1/1;
+	border-radius: 100%;
+}
+
+.input__file input {
+	text-align: center;
+	width: 100%;
+}
+
+.settings__editor__fields > div {
+	flex: 1;
+}
+
+.settings__editor__fields > div:nth-child(2) {
+	flex-basis: 50%;
+	display: grid;
+	gap: 1rem;
+}
+
+.settings__editor__input {
+	display: grid;
+}
+
+.settings__editor__input small {
+	color: var(--error);
+	display: none;
+}
+
+.settings__editor__input input:user-invalid + small {
+	display: block;
+}
+
+.settings__editor__input--radio {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.settings__editor__input--radio label {
+	font-weight: normal;
+}

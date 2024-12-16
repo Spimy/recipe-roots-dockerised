@@ -1,0 +1,71 @@
+.btn {
+	padding: 0.3em 1.5em;
+}
+
+.dashboard {
+	display: grid;
+	gap: 2rem;
+	margin-bottom: 2rem;
+}
+
+.dashboard .chart {
+	width: 100%;
+	height: 35rem;
+}
+
+@media (scripting: none) {
+	.dashboard .chart {
+		display: none;
+	}
+}
+
+.dashboard__produce header {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	margin-block-end: 1rem;
+}
+
+.dashboard__produce header h2 {
+	flex-grow: 9999;
+	color: var(--primary-clr);
+}
+
+.dashboard__produce header .btn {
+	flex-grow: 1;
+}
+
+.chart--table {
+	background-color: var(--secondary-clr);
+	color: var(--white);
+	border-radius: 0.5rem;
+	padding: 1rem;
+}
+
+table {
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;
+}
+
+th {
+	color: var(--grey-blue);
+	font-weight: normal;
+	border-bottom: 0.1rem solid var(--grey-blue);
+}
+
+tr {
+	border-radius: 0.25rem;
+	padding: 0.2rem;
+}
+
+tr:nth-of-type(even) {
+	background: hsl(from var(--secondary-clr) h s 25%);
+}
+
+td,
+th {
+	padding: 6px;
+	text-align: left;
+}

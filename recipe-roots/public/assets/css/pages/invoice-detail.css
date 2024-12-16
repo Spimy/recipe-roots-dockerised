@@ -1,0 +1,35 @@
+.invoice {
+	display: grid;
+	gap: 1rem;
+	margin-block: 1rem;
+}
+
+.invoice__purchase {
+	border-radius: 0.5rem;
+	background-color: var(--silver);
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.invoice__purchase:not(:has(img)) {
+	padding: 1rem;
+}
+
+.invoice__purchase object {
+	display: grid;
+	place-items: center;
+	text-align: center;
+	font-weight: bold;
+	background-color: var(--primary-clr);
+	border-radius: 0.5rem;
+	height: 5rem;
+	width: 8rem;
+	object-fit: cover;
+	font-size: 1rem;
+}
+
+hr {
+	width: 100%;
+	color: var(--silver);
+}

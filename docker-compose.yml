@@ -1,0 +1,44 @@
+name: recipe-roots
+
+services:
+  apache:
+    image: php:8.2.12-apache
+    volumes:
+      - ./recipe-roots:/var/www/html/recipe-roots
+      - ./conf/apache/httpd.conf:/etc/apache2/httpd.conf
+      - ./conf/sendmail/msmtprc.conf:/etc/msmtprc.conf
+      - ./conf/sendmail/sendmail.ini:/usr/local/etc/php/conf.d/sendmail.ini
+      - ./conf/php/php.ini:/usr/local/etc/php/conf.d/custom-php.ini
+    command: >
+      bash -c "
+        a2enmod rewrite &&
+        docker-php-ext-install pdo_mysql &&
+        apt-get update &&
+        apt-get install -y msmtp ca-certificates &&
+        chown www-data /etc/msmtprc.conf &&
+        chmod 600 /etc/msmtprc.conf &&
+        apache2-foreground
+      "
+    environment:
+      - MSMTP_CONFIG=/etc/msmtprc
+    ports:
+      - 80:80
+    networks:
+      - app-network
+  mariadb:
+    image: mariadb:10.4.32
+    volumes:
+      - ./mariadb:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: reciperoots
+    ports:
+      - 3306:3306
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

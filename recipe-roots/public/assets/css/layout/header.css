@@ -1,0 +1,262 @@
+.navbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-inline: var(--content-padding);
+	background-color: var(--secondary-clr);
+	height: var(--navbar-height);
+}
+
+.navbar__menu__items {
+	display: flex;
+	cursor: pointer;
+	gap: 2rem;
+	align-items: center;
+}
+
+.navbar__menu__items button {
+	border: none;
+	background: none;
+	padding: 0;
+	color: var(--primary-clr);
+	cursor: pointer;
+}
+
+.navbar__menu__items button:focus-visible {
+	outline: 0.2em solid var(--primary-clr);
+}
+
+.navbar__menu__items a:hover,
+.navbar__menu__items button:not(:has(.avatar)):hover {
+	text-decoration: underline;
+}
+
+.navbar__menu__items .avatar {
+	display: grid;
+	place-items: center;
+	border-radius: 100%;
+	background-color: var(--silver);
+	width: 2rem;
+	height: 2rem;
+	object-fit: cover;
+	color: var(--secondary-clr);
+}
+
+#recipes-toggle {
+	anchor-name: --recipes-toggle;
+}
+
+#recipes-toggle + menu {
+	position-anchor: --recipes-toggle;
+}
+
+#cookbooks-toggle {
+	anchor-name: --cookbooks-toggle;
+}
+
+#cookbooks-toggle + menu {
+	position-anchor: --cookbooks-toggle;
+}
+
+#avatar-toggle {
+	anchor-name: --avatar-toggle;
+}
+
+#avatar-toggle + menu {
+	position-anchor: --avatar-toggle;
+}
+
+.nav-menu {
+	gap: 0.5rem;
+
+	padding-block-end: 1rem;
+	padding-inline: 1rem;
+	cursor: auto;
+
+	border: none;
+	border-bottom-left-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
+
+	color: var(--white);
+	background-color: var(--secondary-clr);
+
+	margin: 0;
+	position: absolute;
+	inset: unset;
+	height: unset;
+	width: max-content;
+	top: var(--navbar-height);
+	left: anchor(left);
+	translate: -25% 0;
+
+	z-index: -1;
+
+	opacity: 0;
+	transform: translateY(-1em);
+	transition: display 0.3s ease-in-out, opacity 0.3s ease-in-out,
+		transform 0.3s ease-in-out, z-index 0.3s step-end;
+	transition-behavior: allow-discrete;
+}
+
+.nav-menu:popover-open {
+	display: grid;
+	opacity: 1;
+	transform: translateY(0);
+	z-index: 1;
+
+	@starting-style {
+		transform: translateY(-1em);
+		opacity: 0;
+	}
+}
+
+.navbar__menu__toggle {
+	display: none;
+}
+
+.navbar__menu__toggle input {
+	display: none;
+}
+
+.nav-menu button,
+.navbar__menu__items .close-nav {
+	display: none;
+}
+
+.nav-menu button,
+.navbar__menu__items .close-nav,
+.navbar__menu__toggle label {
+	font-weight: bolder;
+	font-size: 2rem;
+}
+
+.navbar__menu__items .close-nav label,
+.navbar__menu__toggle label {
+	color: var(--primary-clr);
+	cursor: pointer;
+}
+
+.nav-menu button:hover,
+.navbar__menu__items .close-nav {
+	text-decoration: none;
+}
+
+.nav-menu::backdrop {
+	inset: unset;
+	display: none;
+}
+
+.icon-nav {
+	display: flex;
+	gap: 2rem;
+	align-items: center;
+}
+
+.notification-link {
+	position: relative;
+}
+
+.notification-link > p {
+	position: absolute;
+	border-radius: 100%;
+	background-color: var(--warning);
+	width: 1.2rem;
+	height: 1.2rem;
+	text-align: center;
+	color: var(--secondary-clr);
+	top: 0.6rem;
+	left: 0.6rem;
+	line-height: 1.2rem;
+	font-size: 0.8rem;
+}
+
+@media screen and (max-width: 70em) {
+	.navbar__menu__toggle {
+		display: block;
+	}
+
+	.navbar__menu__items {
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
+		position: fixed;
+		inset: 0;
+		height: 100%;
+		width: 100%;
+		background-color: var(--secondary-clr);
+		z-index: 999;
+		opacity: 0;
+		transform: translate(100%, 0);
+
+		transition: display 0.3s ease-in-out, opacity 0.3s ease-in-out,
+			transform 0.3s ease-in-out, z-index 0.3s 1s;
+		transition-behavior: allow-discrete;
+	}
+
+	.navbar__menu__toggle:has(input:checked) + .navbar__menu__items {
+		opacity: 1;
+		transform: translate(0, 0);
+		display: flex;
+
+		@starting-style {
+			opacity: 0;
+			transform: translate(100%, 0);
+		}
+	}
+
+	.nav-menu {
+		height: 100%;
+		width: 100%;
+		background-color: var(--silver);
+
+		position: fixed;
+		inset: 0;
+
+		flex-direction: column;
+		align-items: center;
+		gap: 5rem;
+		padding-block: 10rem;
+
+		opacity: 0;
+		transform: translate(100%, 0);
+
+		transition: display 0.3s ease-in-out, opacity 0.3s ease-in-out,
+			transform 0.3s ease-in-out, z-index 0.3s step-end;
+		transition-behavior: allow-discrete;
+	}
+
+	.nav-menu:popover-open {
+		display: flex;
+		transform: translate(25%, 0);
+
+		@starting-style {
+			opacity: 0;
+			transform: translate(100%, 0);
+		}
+	}
+
+	.nav-menu button,
+	.navbar__menu__items .close-nav {
+		display: block;
+		position: absolute;
+		top: 1rem;
+		right: var(--content-padding);
+	}
+
+	.navbar__menu__items > li:nth-last-child(2) {
+		order: -2;
+	}
+
+	.navbar__menu__items > li:nth-last-child(2) .avatar {
+		width: 4rem;
+		height: 4rem;
+	}
+
+	.cart-link img {
+		display: inline;
+	}
+
+	.navbar__menu__items > li:nth-last-child(3) {
+		order: -1;
+	}
+}

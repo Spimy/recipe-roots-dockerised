@@ -1,0 +1,59 @@
+name: recipe-roots
+
+services:
+  apache:
+    container_name: apache
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./recipe-roots:/var/www/html/recipe-roots
+      - ./conf/apache/httpd.conf:/etc/apache2/httpd.conf
+      - ./conf/apache/sites-available:/etc/apache2/sites-available
+      - ./conf/sendmail/sendmail.ini:/usr/local/etc/php/conf.d/sendmail.ini
+      - ./conf/php/php.ini:/usr/local/etc/php/conf.d/custom-php.ini
+    ports:
+      - 80:80
+    networks:
+      - app-network
+  mariadb:
+    image: mariadb:10.4.32
+    container_name: mariadb
+    volumes:
+      - ./mariadb:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: RecipeRoots
+    ports:
+      - 3306:3306
+    networks:
+      - app-network
+  certbot:
+    image: certbot/certbot:latest
+    container_name: certbot
+    depends_on:
+      - apache
+    networks:
+      - app-network
+    volumes:
+      - ./conf/ssl:/etc/letsencrypt
+      - ./recipe-roots:/var/www/html/recipe-roots
+    entrypoint: '/bin/sh -c'
+    command:
+      - >
+        certbot certonly --webroot
+        --webroot-path=/var/www/html/recipe-roots/public
+        --email william@spimy.dev
+        --agree-tos
+        --no-eff-email
+        -d recipe-roots.spimy.dev
+
+networks:
+  app-network:
+    driver: bridge
+# To fix permission issues, run the following commands in an interactive shell after the apache container has started
+# We have to do this manually because we're using volume mounts instead of copying over the final files so chown cannot find the files during build stage
+# chown www-data:www-data /var/www/html/recipe-roots/public/uploads
+# chmod 755 /var/www/html/recipe-roots/public/uploads

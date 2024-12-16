@@ -1,0 +1,104 @@
+.grid {
+	--_grid-column-count: 2;
+}
+
+.success {
+	margin-block-start: 1rem;
+}
+
+.cookbook {
+	border-radius: 0.5rem;
+	background-color: var(--silver);
+	display: flex;
+	align-items: center;
+	min-width: 0;
+	width: 100%;
+}
+
+.cookbook__thumbnail {
+	display: grid;
+	place-items: center;
+	text-align: center;
+	font-weight: bold;
+	background-color: var(--primary-clr);
+	border-radius: 0.5rem;
+	height: 100%;
+	width: 10rem;
+	object-fit: cover;
+	flex: 1;
+}
+
+.cookbook__details {
+	padding: 1rem;
+	min-width: 0;
+	min-height: 12rem;
+	display: grid;
+	gap: 0.5rem;
+	flex: 1;
+	flex-basis: 50%;
+}
+
+@media screen and (max-width: 90em) {
+	.cookbook {
+		flex-direction: column;
+	}
+
+	.cookbook__thumbnail {
+		height: 10rem;
+		width: 100%;
+		flex: unset;
+	}
+}
+
+.cookbook__details p {
+	color: var(--grey);
+}
+
+.cookbook__details h2 {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.cookbook__details p {
+	display: -webkit-box;
+	overflow: hidden;
+	line-clamp: 3;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+
+.cookbook__details__footer {
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.cookbook__details__footer .btn {
+	padding: 0 1.5em;
+}
+
+.cookbook__details__footer,
+.cookbook__details__footer__metadata {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.cookbook__details__footer__metadata p {
+	color: var(--dark-grey);
+}
+
+.cookbook__details__footer__metadata__rating {
+	color: var(--dark-grey);
+	background-color: var(--white);
+	border-radius: 5rem;
+	padding: 0.2rem 0.5rem;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 0.5rem;
+}
+
+.cookbook__details__footer__metadata__rating img {
+	width: 0.7rem;
+}
