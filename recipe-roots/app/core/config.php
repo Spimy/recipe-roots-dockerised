@@ -17,8 +17,8 @@ switch ( $_SERVER['SERVER_NAME'] ) {
 		/** database config **/
 		define( 'DBNAME', 'RecipeRoots' );
 		define( 'DBHOST', 'mariadb' );
-		define( 'DBUSER', 'root' );
-		define( 'DBPASS', 'root' );
+		define( 'DBUSER', getenv( 'DB_USER' ) );
+		define( 'DBPASS', getenv( 'DB_PASSWORD' ) );
 		define( 'DBDRIVER', '' );
 
 		define( 'DOMAIN', 'recipe-roots.spimy.dev' );
@@ -30,3 +30,4 @@ switch ( $_SERVER['SERVER_NAME'] ) {
 const APP_NAME = "Recipe Roots";
 const APP_DESC = "Your Kitchen Assistant";
 const DEBUG = true;
+const EMAIL = getenv( 'SMTP_EMAIL' );

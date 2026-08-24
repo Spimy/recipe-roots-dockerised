@@ -48,8 +48,8 @@ class ForgotPassword {
 				</p>
 				";
 
-				$headers = "From: <williamlaw.3001@gmail.com>\r\n";
-				$headers .= "Reply-To: williamlaw.3001@gmail.com\r\n";
+				$headers = "From: <" . EMAIL . ">\r\n";
+				$headers .= "Reply-To: " . EMAIL . "\r\n";
 				$headers .= "MIME-Version: 1.0\r\n";
 				$headers .= "Content-type: text/html; charset=UTF-8\r\n";
 
