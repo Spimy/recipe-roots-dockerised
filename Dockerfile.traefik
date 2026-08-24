@@ -1,0 +1,26 @@
+FROM php:8.2.12-apache
+
+# Install dependencies
+RUN docker-php-ext-install pdo_mysql
+RUN apt-get update && apt-get install -y msmtp ca-certificates gettext-base
+
+# Copy configurations
+COPY /conf/sendmail/msmtprc.traefik.conf /etc/msmtprc.conf
+COPY /conf/apache/sites-available /etc/apache2/sites-available
+
+# Set email config permissions
+RUN chown www-data /etc/msmtprc.conf
+RUN chmod 600 /etc/msmtprc.conf
+
+# Configure Apache BEFORE the container starts
+RUN a2enmod rewrite
+RUN a2enmod mime
+RUN a2ensite recipe-roots
+RUN a2dissite 000-default
+
+# The final startup command
+CMD envsubst < /etc/msmtprc.conf > /etc/msmtprc.tmp && \
+    mv /etc/msmtprc.tmp /etc/msmtprc.conf && \
+    chmod 600 /etc/msmtprc.conf && \
+    chown www-data /etc/msmtprc.conf && \
+    apache2-foreground

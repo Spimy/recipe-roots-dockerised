@@ -1,0 +1,44 @@
+services:
+  apache:
+    container_name: apache
+    build:
+      context: .
+      dockerfile: Dockerfile.traefik
+    volumes:
+      - ./recipe-roots:/var/www/html/recipe-roots
+      - ./conf/apache/httpd.conf:/etc/apache2/httpd.conf
+      - ./conf/apache/sites-available:/etc/apache2/sites-available
+      - ./conf/sendmail/sendmail.ini:/usr/local/etc/php/conf.d/sendmail.ini
+      - ./conf/php/php.ini:/usr/local/etc/php/conf.d/custom-php.ini
+    networks:
+      - app-network
+      - web-gateway
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=web-gateway"
+      - "traefik.http.routers.reciperoots.rule=Host(`recipe-roots.spimy.dev`)"
+      - "traefik.http.routers.reciperoots.entrypoints=websecure"
+      - "traefik.http.routers.reciperoots.tls=true"
+      - "traefik.http.routers.reciperoots.tls.certresolver=myresolver"
+      - "traefik.http.services.reciperoots.loadbalancer.server.port=80"
+    restart: unless-stopped
+
+  mariadb:
+    image: mariadb:10.4.32
+    container_name: mariadb
+    volumes:
+      - ./mariadb:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: RecipeRoots
+    networks:
+      - app-network
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge
+  web-gateway:
+    external: true
