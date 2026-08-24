@@ -30,4 +30,3 @@ switch ( $_SERVER['SERVER_NAME'] ) {
 const APP_NAME = "Recipe Roots";
 const APP_DESC = "Your Kitchen Assistant";
 const DEBUG = true;
-const EMAIL = getenv( 'SMTP_EMAIL' );
