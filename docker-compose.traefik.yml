@@ -21,6 +21,11 @@ services:
       - "traefik.http.routers.reciperoots.tls=true"
       - "traefik.http.routers.reciperoots.tls.certresolver=myresolver"
       - "traefik.http.services.reciperoots.loadbalancer.server.port=80"
+    environment:
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_PORT: ${SMTP_PORT}
+      SMTP_USER: ${SMTP_USER}
+      SMTP_PASS: ${SMTP_PASS}
     restart: unless-stopped
 
   mariadb:
