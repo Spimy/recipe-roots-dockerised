@@ -22,6 +22,7 @@ services:
       - "traefik.http.routers.reciperoots.tls.certresolver=myresolver"
       - "traefik.http.services.reciperoots.loadbalancer.server.port=80"
     environment:
+      SMTP_DOMAIN: ${SMTP_DOMAIN}
       SMTP_HOST: ${SMTP_HOST}
       SMTP_PORT: ${SMTP_PORT}
       SMTP_EMAIL: ${SMTP_EMAIL}
